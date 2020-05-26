@@ -178,6 +178,19 @@ class JupyterLabSublime {
       keys: ['Ctrl Shift D'],
       selector: '.CodeMirror-focused',
     });
+    
+    // comments
+    commands.addCommand('sublime:toggleCommentIndented', {
+      execute: () => {
+        editorExec('toggleCommentIndented');
+      },
+      label: 'toggleCommentIndented',
+    });
+    commands.addKeyBinding({
+      command: 'sublime:toggleCommentIndented',
+      keys: ['Ctrl /'],
+      selector: '.CodeMirror-focused',
+    });
 
 
     // 
