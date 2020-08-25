@@ -9,7 +9,6 @@ import { CodeMirrorEditor } from '@jupyterlab/codemirror';
 
 import '../style/index.css';
 
-const IS_MAC = !!navigator.platform.match(/Mac/i);
 
 class JupyterLabSublime {
   private tracker: INotebookTracker;
@@ -19,8 +18,8 @@ class JupyterLabSublime {
     this.app = app;
     this.tracker = tracker;
     this.addCommands();
-    this.onAcitveCellChanged();
-    this.tracker.activeCellChanged.connect(this.onAcitveCellChanged, this);
+    this.onActiveCellChanged();
+    this.tracker.activeCellChanged.connect(this.onActiveCellChanged, this);
   }
 
   private addCommands() {
@@ -74,19 +73,11 @@ class JupyterLabSublime {
       },
       label: 'Split selection by line'
     });
-    if (IS_MAC) {
-      commands.addKeyBinding({
-        command: 'sublime:split-selection-by-lLine',
-        keys: ['Accel Shift L'],
-        selector: '.CodeMirror-focused'
-      });
-    } else {
-      commands.addKeyBinding({
-        command: 'sublime:split-selection-by-lLine',
-        keys: ['Ctrl Shift L'],
-        selector: '.CodeMirror-focused'
-      });
-    }
+    commands.addKeyBinding({
+      command: 'sublime:split-selection-by-lLine',
+      keys: ['Ctrl Shift L'],
+      selector: '.CodeMirror-focused'
+    });
 
 
     // 
@@ -103,6 +94,7 @@ class JupyterLabSublime {
       keys: ['Ctrl M'],
       selector: '.CodeMirror-focused',
     });
+    
     commands.addCommand('sublime:selectBetweenBrackets', {
       execute: () => {
         editorExec('selectBetweenBrackets');
@@ -348,7 +340,7 @@ class JupyterLabSublime {
     });
   }
 
-  private onAcitveCellChanged(): void {
+  private onActiveCellChanged(): void {
     const activeCell = this.tracker.activeCell;
     if (activeCell !== null) {
       (activeCell.editor as CodeMirrorEditor).setOption('keyMap', 'sublime');
