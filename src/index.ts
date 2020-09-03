@@ -42,7 +42,7 @@ class JupyterLabSublime {
     commands.addKeyBinding({
       command: 'sublime:exit-editor',
       keys: ['Escape'],
-      selector: '.CodeMirror-focused'
+      selector: '.jp-Notebook.jp-mod-editMode'
     });
 
     // Manage Shift-Tab collision
@@ -63,7 +63,7 @@ class JupyterLabSublime {
     commands.addKeyBinding({
       command: 'sublime:indent-less-slash-tooltip',
       keys: ['Shift Tab'],
-      selector: '.CodeMirror-focused'
+      selector: '.jp-Notebook.jp-mod-editMode'
     });
 
     // Manage Shift-Ctr-L collision
@@ -76,10 +76,12 @@ class JupyterLabSublime {
     commands.addKeyBinding({
       command: 'sublime:split-selection-by-lLine',
       keys: ['Ctrl Shift L'],
-      selector: '.CodeMirror-focused'
+      selector: '.jp-Notebook.jp-mod-editMode'
     });
 
 
+
+    // by me
     // 
     // 0 Manage Bracket 
     // 
@@ -92,7 +94,7 @@ class JupyterLabSublime {
     commands.addKeyBinding({
       command: 'sublime:goToBracket',
       keys: ['Ctrl M'],
-      selector: '.CodeMirror-focused',
+      selector: '.jp-Notebook.jp-mod-editMode',
     });
     
     commands.addCommand('sublime:selectBetweenBrackets', {
@@ -104,7 +106,7 @@ class JupyterLabSublime {
     commands.addKeyBinding({
       command: 'sublime:selectBetweenBrackets',
       keys: ['Ctrl Shift M'],
-      selector: '.CodeMirror-focused',
+      selector: '.jp-Notebook.jp-mod-editMode',
     });
 
 
@@ -120,7 +122,7 @@ class JupyterLabSublime {
     commands.addKeyBinding({
       command: 'sublime:deleteLine',
       keys: ['Ctrl D'],
-      selector: '.CodeMirror-focused',
+      selector: '.jp-Notebook.jp-mod-editMode',
     });
 
     commands.addCommand('sublime:insertLineAfter', {
@@ -132,7 +134,7 @@ class JupyterLabSublime {
     commands.addKeyBinding({
       command: 'sublime:insertLineAfter',
       keys: ['Ctrl Enter'],
-      selector: '.CodeMirror-focused',
+      selector: '.jp-Notebook.jp-mod-editMode',
     });
 
     commands.addCommand('sublime:swapLineUp', {
@@ -144,7 +146,7 @@ class JupyterLabSublime {
     commands.addKeyBinding({
       command: 'sublime:swapLineUp',
       keys: ['Alt ArrowUp'],
-      selector: '.CodeMirror-focused',
+      selector: '.jp-Notebook.jp-mod-editMode',
     });
 
     commands.addCommand('sublime:swapLineDown', {
@@ -156,7 +158,7 @@ class JupyterLabSublime {
     commands.addKeyBinding({
       command: 'sublime:swapLineDown',
       keys: ['Alt ArrowDown'],
-      selector: '.CodeMirror-focused',
+      selector: '.jp-Notebook.jp-mod-editMode',
     });
 
     commands.addCommand('sublime:duplicateLine', {
@@ -167,8 +169,8 @@ class JupyterLabSublime {
     });
     commands.addKeyBinding({
       command: 'sublime:duplicateLine',
-      keys: ['Ctrl Shift D'],
-      selector: '.CodeMirror-focused',
+      keys: ['Alt Shift ArrowDown'],
+      selector: '.jp-Notebook.jp-mod-editMode',
     });
     
     // comments
@@ -181,7 +183,7 @@ class JupyterLabSublime {
     commands.addKeyBinding({
       command: 'sublime:toggleCommentIndented',
       keys: ['Ctrl /'],
-      selector: '.CodeMirror-focused',
+      selector: '.jp-Notebook.jp-mod-editMode',
     });
 
 
@@ -197,7 +199,7 @@ class JupyterLabSublime {
     commands.addKeyBinding({
       command: 'sublime:selectNextOccurrence',
       keys: ['Alt F'],
-      selector: '.CodeMirror-focused',
+      selector: '.jp-Notebook.jp-mod-editMode',
     });
 
     commands.addCommand('sublime:findUnder', {
@@ -209,7 +211,7 @@ class JupyterLabSublime {
     commands.addKeyBinding({
       command: 'sublime:findUnder',
       keys: ['Alt Shift F'],
-      selector: '.CodeMirror-focused',
+      selector: '.jp-Notebook.jp-mod-editMode',
     });
 
     commands.addCommand('sublime:findUnderPrevious', {
@@ -221,7 +223,7 @@ class JupyterLabSublime {
     commands.addKeyBinding({
       command: 'sublime:findUnderPrevious',
       keys: ['Alt Shift D'],
-      selector: '.CodeMirror-focused',
+      selector: '.jp-Notebook.jp-mod-editMode',
     });
 
     commands.addCommand('sublime:findAllUnder', {
@@ -233,10 +235,14 @@ class JupyterLabSublime {
     commands.addKeyBinding({
       command: 'sublime:findAllUnder',
       keys: ['Ctrl Alt A'],
-      selector: '.CodeMirror-focused',
+      selector: '.jp-Notebook.jp-mod-editMode',
     });
 
-    // 4 Manage Deletion
+
+
+    //
+    // 3 Manage Deletion
+    //
     commands.addCommand('sublime:delLineLeft', {
       execute: () => {
         editorExec('delLineLeft');
@@ -246,7 +252,7 @@ class JupyterLabSublime {
     commands.addKeyBinding({
       command: 'sublime:delLineLeft',
       keys: ['Shift Backspace'],
-      selector: '.CodeMirror-focused',
+      selector: '.jp-Notebook.jp-mod-editMode',
     });
 
     commands.addCommand('sublime:delLineRight', {
@@ -258,7 +264,7 @@ class JupyterLabSublime {
     commands.addKeyBinding({
       command: 'sublime:delLineRight',
       keys: ['Shift Delete'],
-      selector: '.CodeMirror-focused',
+      selector: '.jp-Notebook.jp-mod-editMode',
     });
 
     commands.addCommand('sublime:subword-backward-deletion', {
@@ -297,7 +303,7 @@ class JupyterLabSublime {
     commands.addKeyBinding({
       command: 'sublime:subword-backward-deletion',
       keys: ['Alt Backspace'],
-      selector: '.CodeMirror-focused'
+      selector: '.jp-Notebook.jp-mod-editMode'
     });
 
     commands.addCommand('sublime:subword-forward-deletion', {
@@ -336,7 +342,7 @@ class JupyterLabSublime {
     commands.addKeyBinding({
       command: 'sublime:subword-forward-deletion',
       keys: ['Alt Delete'],
-      selector: '.CodeMirror-focused'
+      selector: '.jp-Notebook.jp-mod-editMode'
     });
   }
 
