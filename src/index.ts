@@ -42,7 +42,7 @@ class JupyterLabSublime {
     commands.addKeyBinding({
       command: 'sublime:exit-editor',
       keys: ['Escape'],
-      selector: '.jp-Notebook.jp-mod-editMode'
+      selector: '.jp-Notebook.jp-mod-editMode' // not work... just disable the original in settings and work!
     });
 
     // Manage Shift-Tab collision
@@ -80,35 +80,10 @@ class JupyterLabSublime {
     });
 
 
-
     // by me
     // 
-    // 0 Manage Bracket 
+    // 0 Manage Bracket no longer needed haha
     // 
-    commands.addCommand('sublime:goToBracket', {
-      execute: () => {
-        editorExec('goToBracket');
-      },
-      label: 'goToBracket',
-    });
-    commands.addKeyBinding({
-      command: 'sublime:goToBracket',
-      keys: ['Ctrl M'],
-      selector: '.jp-Notebook.jp-mod-editMode',
-    });
-    
-    commands.addCommand('sublime:selectBetweenBrackets', {
-      execute: () => {
-        editorExec('selectBetweenBrackets');
-      },
-      label: 'selectBetweenBrackets',
-    });
-    commands.addKeyBinding({
-      command: 'sublime:selectBetweenBrackets',
-      keys: ['Ctrl Shift M'],
-      selector: '.jp-Notebook.jp-mod-editMode',
-    });
-
 
     // 
     // 1 Manage Line
@@ -125,17 +100,7 @@ class JupyterLabSublime {
       selector: '.jp-Notebook.jp-mod-editMode',
     });
 
-    commands.addCommand('sublime:insertLineAfter', {
-      execute: () => {
-        editorExec('insertLineAfter');
-      },
-      label: 'insertLineAfter',
-    });
-    commands.addKeyBinding({
-      command: 'sublime:insertLineAfter',
-      keys: ['Ctrl Enter'],
-      selector: '.jp-Notebook.jp-mod-editMode',
-    });
+    // test insertLineAfter no longer needed haha
 
     commands.addCommand('sublime:swapLineUp', {
       execute: () => {
@@ -202,14 +167,14 @@ class JupyterLabSublime {
       selector: '.jp-Notebook.jp-mod-editMode',
     });
 
-    commands.addCommand('sublime:findUnder', {
+    commands.addCommand('sublime:skipAndSelectNextOccurrence', {
       execute: () => {
-        editorExec('findUnder');
+        editorExec('skipAndSelectNextOccurrence');
       },
-      label: 'findUnder',
+      label: 'skipAndSelectNextOccurrence',
     });
     commands.addKeyBinding({
-      command: 'sublime:findUnder',
+      command: 'sublime:skipAndSelectNextOccurrence',
       keys: ['Alt Shift F'],
       selector: '.jp-Notebook.jp-mod-editMode',
     });
@@ -238,6 +203,18 @@ class JupyterLabSublime {
       selector: '.jp-Notebook.jp-mod-editMode',
     });
 
+    // select
+    commands.addCommand('sublime:selectScope', {
+        execute: () => {
+          editorExec('selectScope');
+        },
+        label: 'selectScope',
+    });
+    commands.addKeyBinding({
+        command: 'sublime:selectScope',
+        keys: ['Ctrl I'],
+        selector: '.jp-Notebook.jp-mod-editMode',
+      });
 
 
     //

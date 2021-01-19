@@ -32,13 +32,13 @@
     "watch": "tsc -w"
   },
   "dependencies": {
-    "@jupyterlab/application": "^2.0.0",
-    "@jupyterlab/notebook": "^2.0.0",
-    "@types/codemirror": "0.0.76"
+    "@jupyterlab/application": "^3.0.3",
+    "@jupyterlab/notebook": "^3.0.3",
+    "@types/codemirror": "0.0.106"
   },
   "devDependencies": {
-    "rimraf": "^3.0.2",
     "prettier": "^1.19.1",
+    "rimraf": "^3.0.2",
     "tslint": "^5.15.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.0.1",
